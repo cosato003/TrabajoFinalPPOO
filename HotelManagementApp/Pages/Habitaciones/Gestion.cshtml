@@ -1,0 +1,122 @@
+@page "{id}"
+@using EjercicioFinalOOP.Models
+@model HotelManagementApp.Pages.Habitaciones.GestionModel
+@{
+    ViewData["Title"] = "Gestión de Habitación";
+}
+
+<h1 style="color: #1E90FF; text-align: center; margin-bottom: 20px;">Gestión de Habitación - @Model.Room.RoomNumber</h1>
+
+<partial name="_ValidationSummary" model="ViewData.ModelState" />
+
+<h2 style="color: #1E90FF;">Estado de Gasto del Cliente</h2>
+<table class="table table-striped" style="border: 1px solid #1E90FF;">
+    <thead style="background-color: #1E90FF; color: white;">
+        <tr>
+            <th>Descripción</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Costo Total</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Transactions)
+        {
+            <tr>
+                <td>@item.Description</td>
+                <td>@item.Quantity</td>
+                <td>@item.UnitCost</td>
+                <td>@item.TotalCost</td>
+                <td>@item.When.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p style="color: #1E90FF;">Total Gasto: @Model.TotalGasto</p>
+
+@if (Model.Minibar != null)
+{
+    <h2 style="color: #1E90FF;">Estado del Minibar</h2>
+    <table class="table table-striped" style="border: 1px solid #1E90FF;">
+        <thead style="background-color: #1E90FF; color: white;">
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Botellas de Licor</td>
+                <td>@Model.Minibar.LiquorBottles</td>
+            </tr>
+            <tr>
+                <td>Botellas de Agua</td>
+                <td>@Model.Minibar.WaterBottles</td>
+            </tr>
+            <tr>
+                <td>Kits de Aseo Personal</td>
+                <td>@Model.Minibar.PersonalCareKits</td>
+            </tr>
+            <tr>
+                <td>Gaseosas</td>
+                <td>@Model.Minibar.Sodas</td>
+            </tr>
+            @if (Model.Minibar.WineBottles > 0)
+            {
+                <tr>
+                    <td>Botellas de Vino</td>
+                    <td>@Model.Minibar.WineBottles</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2 style="color: #1E90FF;">Reducir Artículos del Minibar</h2>
+    <form method="post" asp-page-handler="Minibar" style="border: 1px solid #1E90FF; padding: 10px; border-radius: 5px; margin-bottom: 20px;">
+        <div class="form-group">
+            <label for="SelectedMinibarItem" style="color: #1E90FF;">Seleccionar Artículo</label>
+            <select class="form-control" id="SelectedMinibarItem" name="SelectedMinibarItem" asp-for="SelectedMinibarItem" style="border-color: #1E90FF;">
+                @foreach (var item in Enum.GetValues(typeof(MinibarItem)).Cast<MinibarItem>())
+                {
+                    <option value="@item">@item.ToString()</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Quantity" style="color: #1E90FF;">Cantidad</label>
+            <input type="number" class="form-control" id="Quantity" name="Quantity" asp-for="Quantity" required style="border-color: #1E90FF;" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="background-color: #1E90FF; border-color: #1E90FF;">Reducir Artículo</button>
+    </form>
+}
+
+<h2 style="color: #1E90FF;">Servicio de Restaurante</h2>
+<form method="post" asp-page-handler="Restaurante" style="text-align: center;">
+    <div class="form-group">
+        <label for="RestaurantItem" style="color: #1E90FF;">Seleccionar Artículo</label>
+        <select class="form-control" id="RestaurantItem" name="RestaurantItem" asp-for="RestaurantItem" style="border-color: #1E90FF;">
+            <option value="Desayuno">Desayuno - $15,000</option>
+            <option value="Almuerzo">Almuerzo - $25,000</option>
+            <option value="Cena">Cena - $20,000</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="RoomService" style="color: #1E90FF;">Servicio a la Habitación</label>
+        <input type="checkbox" id="RoomService" name="RoomService" asp-for="RoomService" />
+    </div>
+    <button type="submit" class="btn btn-primary" style="background-color: #1E90FF; border-color: #1E90FF;">Agregar Pedido</button>
+</form>
+
+<h2 style="color: #1E90FF;">Servicio de Lavandería</h2>
+<form method="post" asp-page-handler="Lavanderia" style="text-align: center;">
+    <div class="form-group">
+        <label for="LaundryQuantity" style="color: #1E90FF;">Cantidad de Prendas</label>
+        <input type="number" class="form-control" id="LaundryQuantity" name="LaundryQuantity" asp-for="LaundryQuantity" required style="border-color: #1E90FF;" />
+    </div>
+    <div class="form-group">
+        <label for="Ironing" style="color: #1E90FF;">¿Incluir Planchado?</label>
+        <input type="checkbox" id="Ironing" name="Ironing" asp-for="Ironing" />
+    </div>
+    <button type="submit" class="btn btn-primary" style="background-color: #1E90FF; border-color: #1E90FF;">Agregar Servicio de Lavandería</button>
+</form>

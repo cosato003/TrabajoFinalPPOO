@@ -1,0 +1,32 @@
+@page
+@model HotelManagementApp.Pages.Clientes.CrearModel
+@{
+    ViewData["Title"] = "Crear Cliente";
+}
+<partial name="_ValidationScriptsPartial"></partial>
+<partial name="_ValidationSummary" model="ViewData.ModelState"></partial>
+<h1 style="color: #1E90FF; text-align: center; margin-bottom: 20px;">Crear Cliente</h1>
+
+<form method="post" style="border: 1px solid #1E90FF; padding: 20px; border-radius: 10px;">
+    <div class="form-group">
+        <label for="Name" style="color: #1E90FF;">Nombre del Cliente</label>
+        <input type="text" class="form-control" id="Name" name="Name" asp-for="Name" required style="border-color: #1E90FF;" />
+    </div>
+    <div class="form-group">
+        <label for="IdType" style="color: #1E90FF;">Tipo de ID</label>
+        <input type="text" class="form-control" id="IdType" name="IdType" asp-for="IdType" required style="border-color: #1E90FF;" />
+    </div>
+    <div class="form-group">
+        <label for="IdNumber" style="color: #1E90FF;">Número de ID</label>
+        <input type="text" class="form-control" id="IdNumber" name="IdNumber" asp-for="IdNumber" required style="border-color: #1E90FF;" />
+    </div>
+    <div class="form-group">
+        <label for="Phone" style="color: #1E90FF;">Teléfono</label>
+        <input type="text" class="form-control" id="Phone" name="Phone" asp-for="Phone" required style="border-color: #1E90FF;" />
+    </div>
+    <div class="form-group">
+        <label for="LoyaltyCode" style="color: #1E90FF;">Código de Fidelidad</label>
+        <input type="text" class="form-control" id="LoyaltyCode" name="LoyaltyCode" asp-for="LoyaltyCode" style="border-color: #1E90FF;" />
+    </div>
+    <button type="submit" class="btn btn-primary" style="background-color: #1E90FF; border-color: #1E90FF;">Crear Cliente</button>
+</form>

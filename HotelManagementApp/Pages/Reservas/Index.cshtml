@@ -1,0 +1,36 @@
+@page
+@model HotelManagementApp.Pages.Reservas.IndexModel
+@{
+    ViewData["Title"] = "Reservas";
+}
+<partial name="_ValidationScriptsPartial"></partial>
+<partial name="_ValidationSummary" model="ViewData.ModelState"></partial>
+<h1 style="color: #1E90FF; text-align: center; margin-bottom: 20px;">Reservas</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID de Reserva</th>
+            <th>ID del Huésped</th>
+            <th>Número de Habitación</th>
+            <th>Fecha de Check-In</th>
+            <th>Fecha de Check-Out</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reserva in Model.Reservas)
+        {
+            <tr>
+                <td>@reserva.ReservationNumber</td>
+                <td>@reserva.ReservedGuest.IdNumber</td>
+                <td>@reserva.ReservedRoom.RoomNumber</td>
+                <td>@reserva.CheckInDate.ToShortDateString()</td>
+                <td>@reserva.CheckOutDate.ToShortDateString()</td>
+                <td>
+                    <a href="/Reservas/Cancelar?id=@reserva.ReservationNumber" class="btn btn-danger" style="background-color: #DC143C; border-color: #DC143C;">Cancelar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

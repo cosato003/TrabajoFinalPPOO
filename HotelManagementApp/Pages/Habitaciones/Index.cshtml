@@ -1,0 +1,113 @@
+@page
+@model HotelManagementApp.Pages.Habitaciones.IndexModel
+@{
+    ViewData["Title"] = "Habitaciones";
+}
+<partial name="_ValidationScriptsPartial"></partial>
+<partial name="_ValidationSummary" model="ViewData.ModelState"></partial>
+
+<h1 style="color: #1E90FF; text-align: center; margin-bottom: 20px;">Habitaciones</h1>
+
+<h2 style="color: #1E90FF;">Habitaciones Sencillas</h2>
+<table class="table table-striped" style="border: 1px solid #1E90FF;">
+    <thead style="background-color: #1E90FF; color: white;">
+        <tr>
+            <th>Número</th>
+            <th>Piso</th>
+            <th>Tarifa por Noche</th>
+            <th>Ocupada</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var habitacion in Model.SimpleRooms)
+        {
+            <tr>
+                <td>@habitacion.RoomNumber</td>
+                <td>@habitacion.Floor</td>
+                <td>@habitacion.NightlyRate</td>
+                <td>@habitacion.Occupied</td>
+                <td>
+                    @if (!habitacion.Occupied)
+                    {
+                        <a href="/Habitaciones/CheckIn/@habitacion.RoomNumber" class="btn btn-primary" style="background-color: #1E90FF; border-color: #1E90FF;">Check In</a>
+                    }
+                    else
+                    {
+                        <a href="/Habitaciones/CheckOut/@habitacion.RoomNumber" class="btn btn-danger" style="background-color: #DC143C; border-color: #DC143C;">Check Out</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2 style="color: #1E90FF;">Habitaciones Ejecutivas</h2>
+<table class="table table-striped" style="border: 1px solid #1E90FF;">
+    <thead style="background-color: #1E90FF; color: white;">
+        <tr>
+            <th>Número</th>
+            <th>Piso</th>
+            <th>Tarifa por Noche</th>
+            <th>Ocupada</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var habitacion in Model.ExecutiveRooms)
+        {
+            <tr>
+                <td>@habitacion.RoomNumber</td>
+                <td>@habitacion.Floor</td>
+                <td>@habitacion.NightlyRate</td>
+                <td>@habitacion.Occupied</td>
+                <td>
+                    @if (!habitacion.Occupied)
+                    {
+                        <a href="/Habitaciones/CheckIn/@habitacion.RoomNumber" class="btn btn-primary" style="background-color: #1E90FF; border-color: #1E90FF;">Check In</a>
+                    }
+                    else
+                    {
+                        <a href="/Habitaciones/CheckOut/@habitacion.RoomNumber" class="btn btn-danger" style="background-color: #DC143C; border-color: #DC143C;">Check Out</a>
+                        <a href="/Habitaciones/Gestion/@habitacion.RoomNumber" class="btn btn-secondary" style="background-color: #808080; border-color: #808080;">Gestionar</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2 style="color: #1E90FF;">Suites</h2>
+<table class="table table-striped" style="border: 1px solid #1E90FF;">
+    <thead style="background-color: #1E90FF; color: white;">
+        <tr>
+            <th>Número</th>
+            <th>Piso</th>
+            <th>Tarifa por Noche</th>
+            <th>Ocupada</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var habitacion in Model.Suites)
+        {
+            <tr>
+                <td>@habitacion.RoomNumber</td>
+                <td>@habitacion.Floor</td>
+                <td>@habitacion.NightlyRate</td>
+                <td>@habitacion.Occupied</td>
+                <td>
+                    @if (!habitacion.Occupied)
+                    {
+                        <a href="/Habitaciones/CheckIn/@habitacion.RoomNumber" class="btn btn-primary" style="background-color: #1E90FF; border-color: #1E90FF;">Check In</a>
+                    }
+                    else
+                    {
+                        <a href="/Habitaciones/CheckOut/@habitacion.RoomNumber" class="btn btn-danger" style="background-color: #DC143C; border-color: #DC143C;">Check Out</a>
+                        <a href="/Habitaciones/Gestion/@habitacion.RoomNumber" class="btn btn-secondary" style="background-color: #808080; border-color: #808080;">Gestionar</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

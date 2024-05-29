@@ -1,0 +1,70 @@
+@page
+@model HotelManagementApp.Pages.Clientes.IndexModel
+@{
+    ViewData["Title"] = "Clientes";
+}
+<partial name="_ValidationScriptsPartial"></partial>
+<partial name="_ValidationSummary" model="ViewData.ModelState"></partial>
+<h1 style="color: #1E90FF; text-align: center; margin-bottom: 20px;">Clientes</h1>
+
+<table class="table table-striped" style="border: 1px solid #1E90FF;">
+    <thead style="background-color: #1E90FF; color: white;">
+        <tr>
+            <th>Nombre</th>
+            <th>Tipo de ID</th>
+            <th>Número de ID</th>
+            <th>Teléfono</th>
+            <th>Código de Fidelidad</th>
+            <th>Descuento (%)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in Model.Clientes)
+        {
+            <tr>
+                <td>@cliente.Name</td>
+                <td>@cliente.IdType</td>
+                <td>@cliente.IdNumber</td>
+                <td>@cliente.Phone</td>
+                <td>@cliente.LoyaltyCode</td>
+                <td>
+                    <input id="@cliente.IdNumber" type="number" class="form-control" value="@cliente.Discount" onchange="updateDiscount(this, '@cliente.IdNumber')" style="border-color: #1E90FF;"/>
+                </td>
+                <td>
+                    <button class="btn btn-primary" onclick="saveDiscount('@cliente.IdNumber', @cliente.Discount)" style="background-color: #1E90FF; border-color: #1E90FF;">Guardar</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        function updateDiscount(input, id) {
+            const discount = parseFloat(input.value);
+            input.value = discount;
+        }
+
+        async function saveDiscount(id) {
+            const customerRow = document.getElementById(id)
+            const discount = customerRow.value;
+
+            if (discount !== undefined) {
+                const response = await fetch(`/Clientes/Actualizar?IdNumber=${id}&Discount=${discount}`, {
+                    method: 'GET',
+                    headers: {
+                    },
+                });
+
+                if (response.ok) {
+                    alert('Descuento actualizado correctamente.');
+                } else {
+                    alert('Error al actualizar el descuento.');
+                }
+            } else {
+                alert('Por favor, modifique el descuento antes de guardar.');
+            }
+        }
+    </script>
+}

@@ -1,0 +1,75 @@
+@page
+@model HotelManagementApp.Pages.Reservas.CrearModel
+@{
+    ViewData["Title"] = "Crear Reserva";
+}
+<partial name="_ValidationScriptsPartial"></partial>
+<partial name="_ValidationSummary" model="ViewData.ModelState"></partial>
+<h1 style="color: #1E90FF; text-align: center; margin-bottom: 20px;">Crear Reserva</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="GuestId">ID del Huésped</label>
+        <select class="form-control" id="GuestId" name="GuestId" asp-items="Model.GuestList">
+            <option value="">Seleccionar Huésped</option>
+        </select>
+    </div>
+    <h3 style="color: #1E90FF;">O registrar un nuevo huésped</h3>
+    <div class="form-group">
+        <label for="NewGuestName">Nombre del Huésped</label>
+        <input type="text" class="form-control" id="NewGuestName" name="NewGuestName" asp-for="NewGuestName" />
+    </div>
+    <div class="form-group">
+        <label for="NewGuestIdType">Tipo de ID</label>
+        <input type="text" class="form-control" id="NewGuestIdType" name="NewGuestIdType" asp-for="NewGuestIdType" />
+    </div>
+    <div class="form-group">
+        <label for="NewGuestIdNumber">Número de ID</label>
+        <input type="text" class="form-control" id="NewGuestIdNumber" name="NewGuestIdNumber" asp-for="NewGuestIdNumber" />
+    </div>
+    <div class="form-group">
+        <label for="NewGuestPhone">Teléfono</label>
+        <input type="text" class="form-control" id="NewGuestPhone" name="NewGuestPhone" asp-for="NewGuestPhone" />
+    </div>
+    <div class="form-group">
+        <label for="RoomType">Tipo de Habitación</label>
+        <select class="form-control" id="RoomType" name="RoomType" asp-for="RoomType" asp-items="Model.RoomTypeList">
+            <option value="">Seleccionar Tipo de Habitación</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="RoomId">Número de Habitación</label>
+        <select class="form-control" id="RoomId" name="RoomId" asp-for="RoomId" asp-items="Model.RoomList">
+            <option value="">Seleccionar Habitación</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="CheckInDate">Fecha de Check-In</label>
+        <input type="date" class="form-control" id="CheckInDate" name="CheckInDate" asp-for="CheckInDate" required />
+    </div>
+    <div class="form-group">
+        <label for="CheckOutDate">Fecha de Check-Out</label>
+        <input type="date" class="form-control" id="CheckOutDate" name="CheckOutDate" asp-for="CheckOutDate" required />
+    </div>
+    <button type="submit" class="btn btn-primary" style="background-color: #1E90FF; border-color: #1E90FF;">Crear Reserva</button>
+</form>
+
+@section Scripts {
+    <script>
+        document.getElementById("RoomType").addEventListener("change", function () {
+            var type = this.value;
+            fetch(`/Reservas/GetRoomsByType?type=${type}`)
+                .then(response => response.json())
+                .then(data => {
+                    var roomSelect = document.getElementById("RoomId");
+                    roomSelect.innerHTML = "";
+                    data.forEach(room => {
+                        var option = document.createElement("option");
+                        option.value = room.value;
+                        option.text = room.text;
+                        roomSelect.add(option);
+                    });
+                });
+        });
+    </script>
+}

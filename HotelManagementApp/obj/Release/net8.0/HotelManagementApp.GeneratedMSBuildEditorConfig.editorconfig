@@ -1,0 +1,103 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = HotelManagementApp
+build_property.RootNamespace = HotelManagementApp
+build_property.ProjectDir = C:\Users\Juanita\Desktop\2024-1\PO\data\HotelManagementApp\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Juanita\Desktop\2024-1\PO\data\HotelManagementApp
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Clientes/Actualizar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50ZXNcQWN0dWFsaXphci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Clientes/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50ZXNcQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Clientes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50ZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Facturas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmFjdHVyYXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Facturas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmFjdHVyYXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Habitaciones/CheckIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGFiaXRhY2lvbmVzXENoZWNrSW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Habitaciones/CheckOut.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGFiaXRhY2lvbmVzXENoZWNrT3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Habitaciones/Gestion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGFiaXRhY2lvbmVzXEdlc3Rpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Habitaciones/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGFiaXRhY2lvbmVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Reservas/Cancelar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzZXJ2YXNcQ2FuY2VsYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Reservas/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzZXJ2YXNcQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Reservas/GetRoomsByType.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzZXJ2YXNcR2V0Um9vbXNCeVR5cGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Reservas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzZXJ2YXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Shared/_ValidationSummary.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU3VtbWFyeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanita/Desktop/2024-1/PO/data/HotelManagementApp/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-o1m62j70wz

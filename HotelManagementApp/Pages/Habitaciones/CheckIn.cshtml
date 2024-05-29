@@ -1,0 +1,50 @@
+@page "{id}"
+@model HotelManagementApp.Pages.Habitaciones.CheckInModel
+@{
+    ViewData["Title"] = "Check-In";
+}
+<partial name="_ValidationScriptsPartial"></partial>
+<partial name="_ValidationSummary" model="ViewData.ModelState"></partial>
+
+<h1 style="color: #1E90FF; text-align: center; margin-bottom: 20px;">Check-In para Habitación @Model.RoomNumber</h1>
+
+<h2 style="color: #1E90FF;">Reservas</h2>
+@if (Model.Reservations != null && Model.Reservations.Any())
+{
+    <form method="post" asp-page-handler="CheckInReservation" style="border: 1px solid #1E90FF; padding: 10px; border-radius: 5px; margin-bottom: 20px;">
+        <div class="form-group">
+            <label for="ReservationId" style="color: #1E90FF;">Seleccionar Reserva</label>
+            <select class="form-control" id="ReservationId" name="ReservationId" style="border-color: #1E90FF;">
+                @foreach (var reservation in Model.Reservations)
+                {
+                    <option value="@reservation.ReservationNumber">
+                        @reservation.ReservedGuest.Name - @reservation.CheckInDate.ToShortDateString() a @reservation.CheckOutDate.ToShortDateString()
+                    </option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" style="background-color: #1E90FF; border-color: #1E90FF;">Check In con Reserva</button>
+    </form>
+}
+else
+{
+    <p style="color: #1E90FF;">No hay reservas disponibles para esta habitación.</p>
+}
+
+<h2 style="color: #1E90FF;">Clientes</h2>
+<form method="post" asp-page-handler="CheckInCustomer" style="border: 1px solid #1E90FF; padding: 10px; border-radius: 5px;">
+    <div class="form-group">
+        <label for="CustomerId" style="color: #1E90FF;">Seleccionar Cliente</label>
+        <select class="form-control" id="CustomerId" name="CustomerId" style="border-color: #1E90FF;">
+            @foreach (var customer in Model.Customers)
+            {
+                <option value="@customer.IdNumber">@customer.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="OutDate" style="color: #1E90FF;">Fecha de Salida</label>
+        <input type="date" class="form-control" id="OutDate" name="OutDate" asp-for="OutDate" required style="border-color: #1E90FF;" />
+    </div>
+    <button type="submit" class="btn btn-primary" style="background-color: #1E90FF; border-color: #1E90FF;">Check In con Cliente</button>
+</form>
